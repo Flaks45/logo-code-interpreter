@@ -6,8 +6,8 @@ class Turtle:
     Turtle is an imaginary position with values that represents the drawing pointer.
     This class DOES NOT DRAW, it just gives the coordinates and other values
     """
-    def __init__(self, xposition: int = 250, yposition: int = 250, rotation: int = 270,
-                 color: tuple[int, int, int] = (0, 0, 0), pensize: int = 1):
+    def __init__(self, xposition: float = 250.0, yposition: float = 250.0, rotation: float = 270.0,
+                 color: tuple[int, int, int] = (0, 0, 0), pensize: int = 2):
         self.x = xposition
         self.y = yposition
         self.rotation = rotation
@@ -17,14 +17,14 @@ class Turtle:
     def get_values(self):
         """
         Gets the values from turtle as dict kwargs
-        :return: dictionary: {"x": int, "y": int, "rotation": int, "color": tuple[int, int, int], "pensize": int}
+        :return: dictionary: {"x": float, "y": float, "rotation": float, "color": tuple[int, int, int], "pensize": int}
         """
         return {"x": self.x, "y": self.y, "rotation": self.rotation, "color": self.color, "pensize": self.pensize}
 
     def get_xy(self):
         """
         Gets the values of xy in a manageable format
-        :return: tuple[int, int]: Position of the turtle
+        :return: tuple[float, float]: Position of turtle
         """
         return self.x, self.y
 
@@ -32,7 +32,7 @@ class Turtle:
         """
         Sets x and y position for the turtle
         :param position: tuple[int, int]: For x and y positions
-        :return: tuple[int, int]: New position of turtle
+        :return: tuple[float, float]: New position of turtle
         """
         self.x = position[0]
         self.y = position[1]
@@ -60,17 +60,17 @@ class Turtle:
         """
         Moves turtle forwards or backwards
         :param distance: int: Distance that the turtle moves
-        :return: tuple[int, int]: New position of turtle
+        :return: tuple[float, float]: New position of turtle
         """
-        self.x += int(math.cos(math.radians(self.rotation)) * distance)
-        self.y += int(math.sin(math.radians(self.rotation)) * distance)
+        self.x += round(math.cos(math.radians(self.rotation)) * distance, 3)
+        self.y += round(math.sin(math.radians(self.rotation)) * distance, 3)
         return self.x, self.y
 
-    def rotate(self, angle: int):
+    def rotate(self, angle: float):
         """
         Rotates turtle (+) clockwise or (-) counterclockwise
         :param angle: int: For rotation addition
         :return: int: New rotation of turtle
         """
-        self.rotation += int(angle)
+        self.rotation += round(angle, 3)
         return self.rotation

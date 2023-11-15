@@ -1,0 +1,1 @@
+fd 50 rt 90 fd 50 lt 90 setpensize 15 fd 50 circle 100
