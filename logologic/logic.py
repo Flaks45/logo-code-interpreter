@@ -31,3 +31,7 @@ def logo_setpensize(canvas: LogoCanvas, turtle: Turtle, pensize: int):
 
 def logo_circle(canvas: LogoCanvas, turtle: Turtle, radius: int):
     canvas.draw_circle(turtle.get_xy(), radius, turtle.pensize, turtle.color)
+
+
+def logo_setxy(canvas: LogoCanvas, turtle: Turtle, position: tuple[int, int]):
+    turtle.set_xy(position)
